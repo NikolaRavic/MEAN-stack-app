@@ -15,6 +15,8 @@ app.use(morgan('tiny'));
 app.use(staticFiles);
 initRoutes(app);
 
-app.listen(config.PORT, ()=>{
-  console.log('Server started on port 80');
+app.set('port', (process.env.PORT || 3333));
+
+app.listen(app.get('port'), ()=>{
+  console.log(`Server started on port ${app.get('port')}`);
 });
