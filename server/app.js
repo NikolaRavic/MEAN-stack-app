@@ -1,5 +1,7 @@
 'use strict'
 
+// app.js
+
 let express = require('express'),
   morgan = require('morgan'),
   bodyParser = require('body-parser'),
@@ -8,15 +10,19 @@ let express = require('express'),
   config = require('./config'),
   staticFiles = express.static('public');
 
-// using middlewares: *morgan to log every request in console and express.static to serve static files, body parser: parse request payload
+// using middlewares: *morgan to log every request in console, express.static to serve static files, body parser: parse request payload
 
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
 app.use(staticFiles);
+
+// init app router
 initRoutes(app);
 
+// set port to available dedicated Heroku port or 3333
 app.set('port', (process.env.PORT || 3333));
 
+// start server on port
 app.listen(app.get('port'), ()=>{
   console.log(`Server started on port ${app.get('port')}`);
 });

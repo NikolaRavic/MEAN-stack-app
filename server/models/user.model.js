@@ -1,3 +1,11 @@
+'use strict'
+
+// User model
+
+// Defining our user model which will reflect DB user document,
+// there is some validations added and timestamp which will serve
+// to sort users in UI according to when is user added to DB
+
 let mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 

@@ -1,5 +1,7 @@
 (function(){
   'use strict';
+
+  // Fetch countries service witch servers to fetch needed data from 3rd party API
   angular.module('myApp')
     .service('countriesService', countriesService);
 

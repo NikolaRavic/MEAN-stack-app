@@ -1,5 +1,11 @@
 (function(){
   'use strict';
+
+  // Toast service which is nice to decouple from controllers logic,
+  // because of boilerplate which gets annoying when application grows
+  // We can set here several kinds of toast message containers
+  // (toast with action, alert toast, info toast, warning toast...) and expose it via service methods
+
   angular.module('myApp')
     .service('toastService', toastService);
 
