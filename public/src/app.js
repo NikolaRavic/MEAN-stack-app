@@ -2,9 +2,8 @@
   'use strict';
 
   var app = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
-    app.run(($rootScope)=> {
-      console.log('Greetings from Angular! Have a nice working week!');
-      $rootScope._ = window._;
+    app.run(()=> {
+      console.log('Greetings from Angular! Have a nice day!');
     })
       .config(function($mdThemingProvider) {
       $mdThemingProvider.theme('default')
