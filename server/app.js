@@ -5,7 +5,7 @@ let express = require('express'),
   bodyParser = require('body-parser'),
   app = express(),
   initRoutes = require('./routes/user.server.routes'),
-  config = require('config'),
+  config = require('./config'),
   staticFiles = express.static('public');
 
 // using middlewares: *morgan to log every request in console and express.static to serve static files, body parser: parse request payload
