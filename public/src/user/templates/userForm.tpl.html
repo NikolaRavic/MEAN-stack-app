@@ -39,7 +39,7 @@
                 <div ng-message="required" ng-if="userForm.country.$error.required && userForm.country.$touched">Country is required.</div></div>
             </div>
         </md-input-container>
-        <md-button class="md-primary md-raised subbmit" ng-click="onSubmit(userForm)" aria-label="Add new user" ng-disabled="userForm.$invalid" layout="row" layout-align="center center">
+        <md-button class="md-primary md-raised submit" ng-click="onSubmit(userForm)" aria-label="Add new user" ng-disabled="userForm.$invalid" layout="row" layout-align="center center">
             <span ng-if="!submiting">Submit</span>
             <md-progress-circular md-diameter="20" ng-if="submiting" class="md-accent md-hue-1"></md-progress-circular>
         </md-button>

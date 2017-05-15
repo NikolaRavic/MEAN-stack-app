@@ -11,22 +11,45 @@
 .iconSearchFocused {
     position: absolute;
     fill: rgb(63, 81, 181);
-    right: 2px;
-    bottom: 2px
+    right: 20px;
+    bottom: 2px;
+    opacity: 1;
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    -moz-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    -ms-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    -o-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    transition: transform 0.3s ease-in, opacity 0.5s linear;
 }
 .iconSearch {
     position: absolute;
-    left: 140px;
+    right: 20px;
     bottom: 2px;
-    fill: #9B9B9B
+    fill: #9B9B9B;
+    opacity: 0;
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -o-transform: scale(0.1);
+    transform: scale(0.1);
+    -webkit-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    -moz-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    -ms-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    -o-transition: transform 0.3s ease-in, opacity 0.5s linear;
+    transition: transform 0.3s ease-in, opacity 0.5s linear;
 }
 .inputField {
     padding-left: 20px;
     padding-right: 20px;
 }
-.subbmit {
+.submit {
     width: 300px;
     height: 40px;
+    margin: 20px 33px 20px 33px;
 }
 .counter {
     width: 50px;

@@ -6,8 +6,8 @@
     </md-toolbar>
     <md-input-container layout="row" class="search inputField">
         <label for="search" style="padding-left: 20px; padding-right: 20px">Search by name</label>
-        <input id="search" type="text" ng-model="search" ng-focus="focused = true" ng-blur="focused = false">
-        <ng-md-icon icon="search" ng-class="focused ? 'iconSearchFocused' : search !== '' ? 'iconSearchFocused' : 'iconSearch'" size="16"></ng-md-icon>
+        <input id="search" type="text" ng-model="search" ng-focus="focused = true" ng-blur="focused = false" maxlength="20">
+        <ng-md-icon icon="search" ng-class="focused ? 'iconSearchFocused' : 'iconSearch'" size="16"></ng-md-icon>
     </md-input-container>
     <md-input-container class="inputField">
         <label style="padding-left: 25px; padding-right: 20px">Sort by:</label>
@@ -32,7 +32,7 @@
                     </div>
                     <div flex="15">
                         <md-button ng-click="onDelete(user, $event)" class="md-fab" aria-label="Delete user" layout-align="center center" style="position: relative; zoom:0.5;">
-                            <ng-md-icon icon="delete_forever" style="position:absolute; fill: #fff; bottom: -13px; right: 13px;" size="30"></ng-md-icon>
+                            <ng-md-icon icon="delete_forever" style="position:absolute; fill: #fff; bottom: -12px; right: 13px;" size="30"></ng-md-icon>
                         </md-button>
                     </div>
                 </md-card>
