@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="./favicon.ico" >
+    <meta charset="UTF-8">
+    <title>MEAN stack demo app</title>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="inc/styles/app.css">
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="userFormCtrl" class="container" layout="column" layout-gt-xs="row" layout-align="center start" layout-margin="10" ng-cloak>
+        <div ng-include="'src/user/templates/userList.tpl.html'" flex></div>
+        <div ng-include="'src/user/templates/userForm.tpl.html'" flex></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+
+    <script src="./src/app.js"></script>
+    <script src="src/constants.js"></script>
+    <script src="src/util/countriesApi.js"></script>
+    <script src="./src/util/toastService.js"></script>
+    <script src="./src/user/user.service.js"></script>
+    <script src="./src/user/user.controller.js"></script>
+</body>
+</html>
