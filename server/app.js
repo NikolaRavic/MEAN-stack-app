@@ -16,5 +16,5 @@ app.use(staticFiles);
 initRoutes(app);
 
 app.listen(config.PORT, ()=>{
-  console.log('Server started on port 3333');
+  console.log('Server started on port 80');
 });
