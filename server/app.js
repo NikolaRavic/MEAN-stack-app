@@ -20,7 +20,7 @@ app.use(staticFiles);
 initRoutes(app);
 
 // set port to available dedicated Heroku port or 3333
-app.set('port', (process.env.PORT || 3333));
+app.set('port', (process.env.PORT || config.PORT));
 
 // start server on port
 app.listen(app.get('port'), ()=>{
