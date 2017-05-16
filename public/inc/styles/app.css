@@ -59,8 +59,8 @@ md-list-item {
     opacity: 1;!important;
 }
 md-list-item.ng-enter {
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+    -webkit-transition: 1s;
+    transition: 1s;
     opacity: 0;!important;
 }
 md-list-item.ng-enter-active {
