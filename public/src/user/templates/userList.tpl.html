@@ -6,7 +6,7 @@
     </md-toolbar>
     <md-input-container layout="row" class="search inputField">
         <label for="search" style="padding-left: 20px; padding-right: 20px">Search by name</label>
-        <input id="search" type="text" ng-model="search" ng-focus="focused = true" ng-blur="focused = false" maxlength="20">
+        <input id="search" type="text" ng-model="search.fullName" ng-focus="focused = true" ng-blur="focused = false" maxlength="20">
         <ng-md-icon icon="search" ng-class="focused ? 'iconSearchFocused' : 'iconSearch'" size="16"></ng-md-icon>
     </md-input-container>
     <md-input-container class="inputField">
