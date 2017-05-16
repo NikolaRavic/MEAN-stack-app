@@ -55,3 +55,14 @@
     width: 50px;
     margin-left: 10px;
 }
+md-list-item {
+    opacity: 1;
+}
+md-list-item.ng-enter {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 0;
+}
+md-list-item.ng-enter-active {
+    opacity: 1;
+}

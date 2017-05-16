@@ -3,7 +3,7 @@
 
   //Registration of our angular module and some config settings
 
-  var app = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
+  var app = angular.module('myApp', ['ngMaterial', 'ngMdIcons', 'ngAnimate']);
     app.run(()=> {
       console.log('Greetings from Angular! Have a nice day!');
     })
