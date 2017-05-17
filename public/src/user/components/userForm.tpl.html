@@ -1,0 +1,49 @@
+<md-whiteframe class="md-whiteframe-1dp user" layout="column" layout-align="center center" flex>
+    <md-toolbar flex>
+        <h2 class="md-toolbar-tools">
+            <span>Add user form</span>
+        </h2>
+    </md-toolbar>
+    <form name="$ctrl.userForm" layout="column" flex novalidate>
+        <md-input-container class="inputField">
+            <label style="padding-left: 20px; padding-right: 20px">Full name</label>
+            <input name="name" type="text" ng-model="$ctrl.user.fullName" required maxlength="30">
+            <div ng-messages="$ctrl.userForm.name.$error">
+                <div ng-message="required" role="alert">Full name is required.</div>
+                <div ng-message="maxlength" role="alert">The full name has to be less than 30 characters long.</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="inputField">
+            <label style="padding-left: 20px; padding-right: 20px">Email</label>
+            <input name="email" type="text" ng-model="$ctrl.user.email" required maxlength="30" ng-pattern="$ctrl.emailValidation">
+            <div ng-messages="$ctrl.userForm.email.$error">
+                <div ng-message="required" role="alert">Email is required.</div>
+                <div ng-message="pattern" role="alert">Valid email address is required.</div>
+                <div ng-message="maxlength" role="alert">Email has to be less than 30 characters long.</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="inputField">
+            <label style="padding-left: 20px; padding-right: 20px">Address</label>
+            <input name="address" type="text" ng-model="$ctrl.user.address" required maxlength="50">
+            <div ng-messages="$ctrl.userForm.address.$error">
+                <div ng-message="required" role="alert">Address is required.</div>
+                <div ng-message="maxlength" role="alert">Address has to be less than 50 characters long.</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="inputField">
+            <label style="padding-left: 20px; padding-right: 20px">Country:</label>
+            <md-select name="country" ng-model="$ctrl.user.country" required>
+                <md-option ng-value="country" ng-repeat="country in $ctrl.countries">{{country}}</md-option>
+            </md-select>
+            <div ng-messages="$ctrl.userForm.country.$error">
+                <div ng-message="required" role="alert">Country is required.</div></div>
+            </div>
+        </md-input-container>
+        <md-button class="md-primary md-raised submit" ng-click="$ctrl.onSubmit({userForm:$ctrl.userForm, user: $ctrl.user})" aria-label="Add new user" ng-disabled="$ctrl.userForm.$invalid" layout="row" layout-align="center center">
+            <span ng-if="!$ctrl.submiting">Submit</span>
+            <md-progress-circular md-diameter="20" ng-if="$ctrl.submiting" class="md-accent md-hue-1"></md-progress-circular>
+        </md-button>
+    </form>
+
+</md-whiteframe>
+

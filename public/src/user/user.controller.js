@@ -28,9 +28,6 @@
       // Initial user list fetching flag which is used just to display first toast message: "All users successfully fetched."
       $scope.initialFetch = true;
 
-      // Regex for email validation in userForm
-      $scope.emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
       // Fetch all users
       getAllUsers();
 
@@ -72,7 +69,8 @@
 
     // Handle err response
     function errFn (err) {
-      toastService.showSimple('Something went wrong: ' + err.message);
+      console.log(err);
+      toastService.showSimple('Something went wrong: ' + err.data);
       $scope.fetching = false;
       $scope.submiting = false;
     }
@@ -80,15 +78,18 @@
     // This function is fired when all input fields are filled and all data are validated
     // in order to add user to DB. If user is saved, users array will be automatically populated
     // And new user will show in the list
-    $scope.onSubmit = function (userForm) {
+    $scope.onSubmit = function (userForm, user) {
+      console.log(userForm, user);
       $scope.submiting = true;
-      userService.createUser($scope.user)
+      userService.createUser(user)
         .then(createUserSuccess, errFn)
       function createUserSuccess (response) {
         toastService.showSimple('User ' + $scope.user.fullName + ' successfully added.');
+        // reset user form
         $scope.user = {};
         userForm.$setPristine();
         userForm.$setUntouched();
+        // fetch all users with new populated data
         getAllUsers();
         $scope.submiting = false;
       }
@@ -97,12 +98,15 @@
     // Function which will be called when delete button is pressed
     // Confirmation dialog will pop-up. If user confirms selected user will be deleted from DB
     // and toast msg will be shown
-    $scope.onDelete = function (user, ev) {
+    $scope.onDelete = function (user, $event) {
+      console.log($event);
       var confirm = $mdDialog.confirm()
         .title('Delete user?')
         .textContent('This action can not be undone!')
         .ariaLabel('Delete user confirm dialog')
-        .targetEvent(ev)
+        .targetEvent($event)
+        .clickOutsideToClose(true)
+        .hasBackdrop(false)
         .ok('Delete')
         .cancel('Cancel');
 
@@ -115,31 +119,6 @@
         }
       }, function() {
       });
-    }
-
-    // Functions which serve to set sorting option for user list
-    $scope.sortFunction = function () {
-      switch ($scope.sort) {
-        case 'newest':
-          return '-timestamp';
-          break;
-        case 'oldest':
-          return 'timestamp';
-          break;
-        case 'nameAZ':
-          return 'fullName';
-          break;
-        case 'nameZA':
-          return '-fullName';
-          break;
-      }
-    }
-
-    // This is helper function to change sort var value
-    // This should automatically work but for some reason (bug in angular material md-select)
-    // this is not working correctly so workaround was needed
-    $scope.onSelect = function (value) {
-      $scope.sort = value;
     }
   }
 

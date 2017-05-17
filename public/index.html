@@ -10,8 +10,8 @@
 <body ng-app="myApp">
 
     <div ng-controller="userFormCtrl" class="container" layout="column" layout-gt-sm="row" layout-align="center start" layout-margin="10" ng-cloak flex>
-        <div ng-include="'src/user/templates/userList.tpl.html'" flex flex-order="2" flex-order-gt-sm="1"></div>
-        <div ng-include="'src/user/templates/userForm.tpl.html'" flex flex-order="1" flex-order-gt-sm="2"></div>
+        <user-list on-delete="onDelete(user, event)" users="users" fetching="fetching" flex flex-order="2" flex-order-gt-sm="1"></user-list>
+        <user-form on-submit="onSubmit(userForm, user)" countries="countries" submiting="submiting" flex flex-order="1" flex-order-gt-sm="2"></user-form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
@@ -27,5 +27,7 @@
     <script src="./src/util/toastService.js"></script>
     <script src="./src/user/user.service.js"></script>
     <script src="./src/user/user.controller.js"></script>
+    <script src="./src/user/components/userForm.component.js"></script>
+    <script src="./src/user/components/userList.component.js"></script>
 </body>
 </html>

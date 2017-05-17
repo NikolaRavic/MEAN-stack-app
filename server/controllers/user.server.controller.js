@@ -24,7 +24,9 @@ exports.create = (req, res) => {
       console.log(err);
       res.json(err);
     }
-    res.json(user);
+    setTimeout(() => {
+      res.json(user);
+    }, 2000);
     console.log('User successfully saved: ', user);
   });
 }

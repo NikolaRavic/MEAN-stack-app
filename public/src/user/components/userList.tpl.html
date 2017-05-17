@@ -6,22 +6,22 @@
     </md-toolbar>
     <md-input-container layout="row" class="search inputField">
         <label for="search" style="padding-left: 20px; padding-right: 20px">Search by name</label>
-        <input id="search" type="text" ng-model="search.fullName" ng-focus="focused = true" ng-blur="focused = false" maxlength="20">
-        <ng-md-icon icon="search" ng-class="focused ? 'iconSearchFocused' : 'iconSearch'" size="16"></ng-md-icon>
+        <input id="search" type="text" ng-model="$ctrl.search.fullName" ng-focus="$ctrl.focused = true" ng-blur="$ctrl.focused = false" maxlength="20">
+        <ng-md-icon icon="search" ng-class="$ctrl.focused ? 'iconSearchFocused' : 'iconSearch'" size="16"></ng-md-icon>
     </md-input-container>
     <md-input-container class="inputField">
         <label style="padding-left: 25px; padding-right: 20px">Sort by:</label>
-        <md-select ng-model="sort" ng-change="onSelect(sort)">
+        <md-select ng-model="$ctrl.sort" ng-change="$ctrl.onSelect($ctrl.sort)">
             <md-option value="newest">Newest</md-option>
             <md-option value="oldest" selected>Oldest</md-option>
             <md-option value="nameAZ">Name A>Z</md-option>
             <md-option value="nameZA">Name Z>A</md-option>
         </md-select>
     </md-input-container>
-    <md-progress-linear ng-if="fetching" md-mode="indeterminate"></md-progress-linear>
-    <md-content ng-if="!fetching" flex>
+    <md-progress-linear ng-if="$ctrl.fetching" md-mode="indeterminate"></md-progress-linear>
+    <md-content ng-if="!$ctrl.fetching" flex>
         <md-list>
-            <md-list-item ng-repeat="user in users | orderBy: sortFunction() | filter: search">
+            <md-list-item ng-repeat="user in $ctrl.users | orderBy: $ctrl.sortFunction() | filter: $ctrl.search">
                 <md-card layout="row" flex layout-align="space-around center">
                     <div class="counter">{{$index + 1}}.</div>
                     <div flex>
@@ -30,8 +30,8 @@
                         <p>{{user.address}}</p>
                         <p>{{user.country}}</p>
                     </div>
-                    <div flex="15">
-                        <md-button ng-click="onDelete(user, $event)" class="md-fab" aria-label="Delete user" layout-align="center center" style="position: relative; zoom:0.5;">
+                    <div flex="15" class="deleteButton">
+                        <md-button ng-click="$ctrl.onDelete({user: user, event: $event})" class="md-fab" aria-label="Delete user" layout-align="center center" style="position: relative; zoom:0.5;">
                             <ng-md-icon icon="delete_forever" style="position:absolute; fill: #fff; bottom: -12px; right: 13px;" size="30"></ng-md-icon>
                         </md-button>
                     </div>
