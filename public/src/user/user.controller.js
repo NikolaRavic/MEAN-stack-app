@@ -56,12 +56,14 @@
     function getUsersSuccess (response) {
       $scope.users = response.data;
       if($scope.initialFetch){
-        $scope.fetching = false;
-        if(response.data.length !== 0){
-          toastService.showSimple('All users successfully fetched.');
-        } else {
-          toastService.showSimple('No users in DB yet.');
-        }
+        setTimeout(function () {
+          $scope.fetching = false;
+          if(response.data.length !== 0){
+            toastService.showSimple('All users successfully fetched.');
+          } else {
+            toastService.showSimple('No users in DB yet.');
+          }
+        }, 2000);
         // This is set in order to disable toast message every time users are fetched
         $scope.initialFetch = false;
       }

@@ -38,9 +38,7 @@ exports.getAll = (req, res) => {
       console.log(`Something went wrong with fetching data: ${err}`);
       return res.json(users);
     }
-    setTimeout(() => {
-      res.json(users);
-    }, 2000);
+    res.json(users);
   });
 }
 
