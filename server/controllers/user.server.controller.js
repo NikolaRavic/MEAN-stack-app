@@ -22,7 +22,7 @@ exports.create = (req, res) => {
   newUser.save((err, user) => {
     if (err) {
       console.log(err);
-      res.json(err);
+      return res.json(err);
     }
     setTimeout(() => {
       res.json(user);
@@ -36,9 +36,11 @@ exports.getAll = (req, res) => {
   User.find({}, (err, users) => {
     if (err) {
       console.log(`Something went wrong with fetching data: ${err}`);
-      return;
+      return res.json(users);
     }
-    res.json(users);
+    setTimeout(() => {
+      res.json(users);
+    }, 2000);
   });
 }
 
