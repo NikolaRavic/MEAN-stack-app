@@ -81,7 +81,6 @@
     // in order to add user to DB. If user is saved, users array will be automatically populated
     // And new user will show in the list
     $scope.onSubmit = function (userForm, user) {
-      console.log(userForm, user);
       $scope.submiting = true;
       userService.createUser(user)
         .then(createUserSuccess, errFn)
@@ -101,7 +100,6 @@
     // Confirmation dialog will pop-up. If user confirms selected user will be deleted from DB
     // and toast msg will be shown
     $scope.onDelete = function (user, $event) {
-      console.log($event);
       var confirm = $mdDialog.confirm()
         .title('Delete user?')
         .textContent('This action can not be undone!')
